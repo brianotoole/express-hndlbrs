@@ -4,8 +4,7 @@ var express = require('express'),
 var app = express();
 
 var hbs = exphbs.create({
-    defaultLayout: 'main',
-    helpers      : helpers,
+    defaultLayout: 'default',
     // register partials folder
     partialsDir: [
         'views/partials/'
@@ -14,6 +13,7 @@ var hbs = exphbs.create({
 
 // Register `hbs` as our view engine using its bound `engine()` function.
 app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // home
 app.get('/', function (req, res) {
