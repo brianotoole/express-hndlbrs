@@ -1,5 +1,6 @@
 var express = require('express'),
-    exphbs  = require('express-handlebars');
+    exphbs  = require('express-handlebars'),
+       path = require('path');
 
 var app = express();
 
@@ -29,15 +30,10 @@ app.get('/about', function (req, res) {
     });
 });
 
-// else
-app.get('/*', function (req, res) {
-    res.render('home', {
-        title: 'Other'
-    });
-});
 
 // assets
-app.use(express.static('public/'));
+//app.use(express.static(path.join(__dirname, 'public'))); 
+app.use('/public', express.static(path.join(__dirname + '/public')));
 
 // listening
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
