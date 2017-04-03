@@ -1,9 +1,9 @@
-var express = require('express'),
-    exphbs  = require('express-handlebars'),
-       path = require('path');
+var express = require('express');
+var exphbs  = require('express-handlebars');
+var path    = require('path');
+var app     = express();
 
-var app = express();
-
+// setup handlebars
 var hbs = exphbs.create({
     defaultLayout: 'default',
     // register partials folder
@@ -16,6 +16,7 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Requests
 // home
 app.get('/', function (req, res) {
     res.render('home', {
@@ -30,10 +31,8 @@ app.get('/about', function (req, res) {
     });
 });
 
-
 // assets
-//app.use(express.static(path.join(__dirname, 'public'))); 
-app.use('/public', express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // listening
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {

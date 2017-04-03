@@ -70,13 +70,14 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = "It works from content.js.";
+throw new Error("Module parse failed: /home/ubuntu/workspace/node_modules/sass-loader/lib/loader.js!/home/ubuntu/workspace/public/stylesheets/style.scss Unexpected token (1:5)\nYou may need an appropriate loader to handle this file type.\n| body {\n|   background: red; }\n| ");
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-document.write(__webpack_require__(0));
+__webpack_require__(0);
+//document.write(require("./content.js"));
 
 /***/ })
 /******/ ]);
