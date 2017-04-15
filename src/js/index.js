@@ -1,2 +1,3 @@
-require("../stylesheets/style.scss");
+require("../scss/style.scss");
+
 //document.write(require("./content.js"));
