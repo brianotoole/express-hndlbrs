@@ -2,7 +2,7 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 var path    = require('path');
 
-
+// routes
 var index = require('./routes/index');
 //var users = require('./routes/users');
 
@@ -31,13 +31,7 @@ app.use('/', index);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use(function(err, req, res, next) {
   res.locals.message = err.message;
-  // render the error page
   res.render('error', {
         title: err
   });
