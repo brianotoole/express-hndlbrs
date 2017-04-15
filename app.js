@@ -6,20 +6,20 @@ var app     = express();
 // setup handlebars
 var hbs = exphbs.create({
     defaultLayout: 'default',
-    // register partials folder
+    extname: 'hbs', //file extenstion name (.hbs)
     partialsDir: [
         'views/partials/'
     ]
 });
 
 // Register `hbs` as our view engine using its bound `engine()` function.
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
 
 // Requests
 // home
 app.get('/', function (req, res) {
-    res.render('home', {
+    res.render('index', {
         title: 'Home'
     });
 });
